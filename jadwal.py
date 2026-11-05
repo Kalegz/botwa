@@ -55,7 +55,10 @@ def teks_hari(hari, label=""):
 
 
 def perintah(msg, deadline_fn):
-    cmd = msg.strip().lower().lstrip("/.!")
+    stripped = msg.strip()
+    if not stripped.startswith(("/", "!", ".")):
+        return None
+    cmd = stripped[1:].strip().lower()
     now = datetime.now(TZ)
     if cmd in ("jadwal", "hariini", "today"):
         return teks_hari(now.weekday(), "(Hari ini)")
