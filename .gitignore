@@ -1,0 +1,7 @@
+key.json
+jadwal.db
+bot.pid
+bot.log
+__pycache__/
+.venv/
+.DS_Store
